@@ -31,23 +31,15 @@
 <body dir="rtl">
     <div id="app">
           <nav class="navbar navbar-expand-lg bg-dark ">
-            <div class="container-fluid">
-              <a class="navbar-brand text-white" href="#">Navbar</a>
+            <div class="container-fluid" >
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="{{route('welcome')}}">الرئيسية </a>
-                      </li>
-                  <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{{route('itemgroup')}}">مجموعات العناصر</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="#">العناصر</a>
-                  </li>
-                 
+                        <a class="nav-link active text-white" aria-current="page" style="font-size: 25px" href="{{route('showGroup')}}">Home</a>
+                    </li>
                 </ul>
               </div>
              
@@ -55,27 +47,41 @@
               <div class="collapse navbar-collapse" >
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <h3 class="nav-link active text-white" aria-current="page" href="#" style="font-family: cairo;">معسكر طويق</h3>
+                      <h3 class="nav-link active text-white" aria-current="page" href="#" style="font-family: cairo; font-size: 35px;">Tuwaiq PHP Laravel</h3>
                     </li>
                    
                     
                   </ul>
                
               </div>
-             
-             
+
+
               <div>
+                @if(Auth::guest())
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" style="font-size: 25px" aria-current="page" class="nav-link active text-white">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" style="font-size: 25px" aria-current="page" class="nav-link active text-white">Register</a>
+                        </li>
+                    </ul>
+                @else
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ route('logout') }}" style="font-size: 25px" aria-current="page" class="nav-link active text-white">Logout</a>
+                        </li>
+                    </ul>
+                @endif
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link active text-white" aria-current="page" href="#">Login</a>
+                        <a href="" style="font-size: 25px" class="fa-solid fa-cart-shopping text-white p-3"></a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white" href="#">Register</a>
-                    </li>
-                    
-                  </ul>
-               
+
+                </ul>
               </div>
+             
+             
             </div>
           </nav>
 
@@ -84,75 +90,17 @@
                 <div class="row">
                     <div class="col-sm-2  bg-dark">
                         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                            <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                                <span class="fs-5 d-none d-sm-inline">Menu</span>
-                            </a>
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                 <li class="nav-item">
-                                    <a href="{{route('controlpanel')}}" class="nav-link align-middle px-0">
-                                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-white">المنتجات</span>
+                                    <a href="{{route('item')}}" class="nav-link align-middle px-0">
+                                        <i class="bi bi-diagram-2-fill  fa-2x"></i> <span class="ms-1 d-none d-sm-inline text-white" style="font-size: 25px">Add item</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('addgritem')}}" class="nav-link align-middle px-0">
-                                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-white">إضافة مجموعة</span>
+                                    <a href="{{route('itemgroup')}}" class="nav-link align-middle px-0">
+                                        <i class="bi bi-collection-fill  fa-2x"></i> <span class="ms-1 d-none d-sm-inline text-white" style="font-size: 25px">Add group</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                                </li>
-                                <li>
-                                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                        <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                        <li class="w-100">
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                        <li class="w-100">
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                                </li>
-                            </ul>
-                            <hr>
-                            <div class="dropdown pb-4">
-                                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                                    <span class="d-none d-sm-inline mx-1">loser</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="col-sm-10 mt-3  d-flex justify-content-center">

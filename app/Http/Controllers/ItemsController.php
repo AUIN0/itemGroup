@@ -89,4 +89,16 @@ class ItemsController extends Controller
 
         return view('dashboard.controlpanel', ['data'=>$data]);
     }
+
+
+    public function showGroup(){
+        $data=itemgroup::All();
+        $count=$data->count();
+        return view('welcome', ['data'=>$data, 'count'=>$count]);
+    }
+
+    public function showProduct(){
+        $data=items::All();
+        return view('showProduct', ['data'=>$data]);
+    }
 }
