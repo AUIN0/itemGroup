@@ -43,8 +43,8 @@
                     <tr>
                         <td>{{$row->id}}</td>
                         <td>{{$row->Itemgroupsname}}</td>
-                        <td><a href="{{ route('edit', ['x' => $row->id]) }}"><i class="fa-regular fa-pen-to-square text-success"></i></a></td>
-                        <td><a href="{{ route('del', ['x' => $row->id]) }}"><i class="fa-solid fa-trash text-danger"></i></a></td>
+                        <td><a href="{{ route('editG', ['x' => $row->id]) }}"><i class="fa-regular fa-pen-to-square text-success"></i></a></td>
+                        <td><a href="{{ route('delG', ['x' => $row->id]) }}"><i class="fa-solid fa-trash text-danger"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

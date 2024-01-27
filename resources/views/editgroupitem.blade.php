@@ -8,7 +8,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body d-flex justify-content-center">
-                    <form action="{{ route('update') }}" method="post">
+                    <form action="{{ route('updateG') }}" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <label for="x1">Item name</label>

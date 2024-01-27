@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\itemgroup;
 use App\Models\items;
+use App\Models\partners;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+
 
 
 class ItemsController extends Controller
@@ -27,30 +30,69 @@ class ItemsController extends Controller
     }
 
     //update
-    public function edit($x){
+    public function editGroup($x){
         $item = itemgroup::where('id', $x)
         ->first();
 
         return view('editgroupitem', ['item'=>$item]);
     }
 
-    public function Update(Request $request){
+    public function updateGroup(Request $request){
         $item=itemgroup::find($request->id);
 
         $item->Itemgroupsname=$request->namegroup;
 
         $item->save();
 
-        return redirect('itemgroup');
+        return redirect('cpanel');
     }
 
     //del
-    public function del($x){
+    public function delGroup($x){
         $item=itemgroup::find($x);
         $item -> delete();
 
         return redirect('itemgroup');
     }
+
+
+
+
+
+
+        //update
+        public function editItem($x){
+            $item = items::where('id', $x)
+            ->first();
+    
+            return view('edititem', ['item'=>$item]);
+        }
+    
+        public function updateItem(Request $request){
+            $item=items::find($request->id);
+    
+            $item->itemname=$request->itemname;
+            $item->price=$request->price;
+            $item->qty=$request->qty;
+            $item->color=$request->color;
+            $item->itemgroupno=$request->itemgroupno;
+
+
+    
+            $item->save();
+    
+            return redirect('cpanel');
+        }
+    
+        //del
+        public function delItem($x){
+            $item=items::find($x);
+            $item -> delete();
+    
+            return redirect('items');
+        }
+
+
 
 
 
@@ -97,8 +139,40 @@ class ItemsController extends Controller
         return view('welcome', ['data'=>$data, 'count'=>$count]);
     }
 
-    public function showProduct(){
-        $data=items::All();
+    public function showProduct($id){
+        $data=items::where('itemgroupno', $id)
+        ->get();
         return view('showProduct', ['data'=>$data]);
+    }
+
+
+    public function AddtoCart($id){
+        DB::table('cart')->insert(['iditem'=> $id]);
+
+        return redirect('showProd/'.$id);
+    }
+
+
+
+    public function testAPI(){
+        $response=http::get('https://api.sampleapis.com/coffee/iced');
+        $data=$response->object();
+        return view('testapi', ['data'=>$data]);
+    }
+
+    public function checkout(){
+        $apiURL = 'https://v1.baseball.api-sports.io/status';
+        $headers = [
+            'Content-Type' => 'application/json',
+            'X-RapidAPI-Key' => '24c939c2ba293c859d5ecd476932d293'
+        ];
+        $response = Http::withHeaders($headers)->get($apiURL);
+        $data = $response->json();
+
+        dd($data);
+    }
+
+    public function about(){
+        return view('about');
     }
 }

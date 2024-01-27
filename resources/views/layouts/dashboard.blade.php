@@ -71,14 +71,11 @@
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" style="font-size: 25px" aria-current="page" class="nav-link active text-white">Logout</a>
                         </li>
+                        <li class="nav-item">
+                        <a href="" style="font-size: 25px" class="fa-solid fa-cart-shopping text-white p-3"></a>
+                        </li>
                     </ul>
                 @endif
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" style="font-size: 25px" class="fa-solid fa-cart-shopping text-white p-3"></a>
-                    </li>
-
-                </ul>
               </div>
              
              

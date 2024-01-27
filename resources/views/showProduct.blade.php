@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3">
-                            <img src="#">
+                            <img src="{{ $row->img }}" height="168" width="267">
                         </div>
                         <div class="col-sm-9 text-start">
                             <h1 class="alert alert-info text-dark">{{ $row->itemname }}</h1>
@@ -17,7 +17,7 @@
 
                             <div class="row">
                                 <div class="col text-center">
-                                    <button class="btn btn-success">Add to cart</button>
+                                    <a href="{{ route('addtocart', ['id'=>$row->id]) }}" class="btn btn-success">Add to cart</a>
                                 </div>
                             </div>
                         </div>

@@ -62,8 +62,8 @@
                                 <td>{{ $item->qty }}</td>
                                 <td>{{ $item->color }}</td>
                                 <td>{{ $item->itemgroupno }}</td>
-                                <td><a href="{{ route('edit', ['x' => $item->id]) }}"><i class="fa-regular fa-pen-to-square text-success"></i></a></td>
-                                <td><a href="{{ route('del', ['x' => $item->id]) }}"><i class="fa-solid fa-trash text-danger"></i></a></td>
+                                <td><a href="{{ route('editI', ['x' => $item->id]) }}"><i class="fa-regular fa-pen-to-square text-success"></i></a></td>
+                                <td><a href="{{ route('delI', ['x' => $item->id]) }}"><i class="fa-solid fa-trash text-danger"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>

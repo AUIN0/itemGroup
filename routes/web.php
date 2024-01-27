@@ -42,21 +42,38 @@ Route::post('/save/Item', [ItemsController::class, 'SaveItems'])->name('saveItem
 
 
 
-Route::get('/edit/{x}',[ItemsController::class, 'edit'])->name('edit')->middleware('auth');
+Route::get('/editG/{x}',[ItemsController::class, 'editGroup'])->name('editG')->middleware('auth');
 
-Route::post('/update', [ItemsController::class, 'Update'])->name('update')->middleware('auth');
+Route::post('/updateG', [ItemsController::class, 'updateGroup'])->name('updateG')->middleware('auth');
 
 
-Route::get('/del/{x}', [ItemsController::class, 'del'])->name('del')->middleware('auth');
+Route::get('/delG/{x}', [ItemsController::class, 'delGroup'])->name('delG')->middleware('auth');
+
+
+
+Route::get('/editI/{x}',[ItemsController::class, 'editItem'])->name('editI')->middleware('auth');
+
+Route::post('/updateI', [ItemsController::class, 'updateItem'])->name('updateI')->middleware('auth');
+
+
+Route::get('/delI/{x}', [ItemsController::class, 'delItem'])->name('delI')->middleware('auth');
+
 
 
 
 Route::get('/cpanel', [DashboardController::class, 'welcomeAdmin'])->name('controlpanel')->middleware('auth');
 
 
-Route::get('/addgritem', [ItemsController::class, 'Displayadditemsgroup'])->name('addgritem')->middleware('auth');
+Route::get('/addgritem', [DashboardController::class, 'welcomeAdmin'])->name('addgritem')->middleware('auth');
 
 
 Route::get('/', [ItemsController::class, 'showGroup'])->name('showGroup')->middleware('auth');
 
-Route::get('/showProd', [ItemsController::class, 'showProduct'])->name('showProd')->middleware('auth');
+Route::get('/showProd/{id}', [ItemsController::class, 'showProduct'])->name('showProd')->middleware('auth');
+
+
+Route::get('/addtocart/{id}', [ItemsController::class, 'AddtoCart'])->name('addtocart')->middleware('auth');
+
+route::get('/checkout',[ItemsController::class,'checkout'])->name('checkout');
+
+Route::get('/aboutMe', [ItemsController::class, 'about'])->name('about');
