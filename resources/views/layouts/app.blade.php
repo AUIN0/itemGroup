@@ -47,14 +47,14 @@
 
                  <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a href="{{route('about')}}" class="nav-link active text-white" style="font-size: 25px">About me</a>
+                    <a href="{{route('about')}}" class="nav-link active text-white" style="font-size: 25px">About</a>
                   </li>
                  </ul>
 
                  <ul class="navbar-nav">
                   <li class="nav-item">
                     <a href="{{route('checkout')}}">
-                      <i class="bi bi-cart-fill text-white p-2 h3"></i> <span class="badge bg-danger"></span>
+                      <i class="bi bi-cart-fill text-white p-2 h3""></i><span class="badge bg-danger p-1">{{Session::get('countitem')}}</span>
                     </a>
                   </li>
                  </ul>

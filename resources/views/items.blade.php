@@ -38,6 +38,11 @@
                 <input type="text" class="form-control" id="itemgroupno" name="itemgroupno" required>
             </div>
 
+            <div class="mb-3">
+                <label for="img" class="form-label">Product Image</label>
+                <input type="text" class="form-control" id="img" name="img" required>
+            </div>
+
             <button type="submit" class="btn btn-primary">Save Item</button>
         </form>
 

@@ -14,6 +14,7 @@ class items extends Model
         'price',
         'qty',
         'color',
-        'itemgroupno'
+        'itemgroupno',
+        'img'
     ];
 }

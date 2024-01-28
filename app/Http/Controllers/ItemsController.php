@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\itemgroup;
 use App\Models\items;
-use App\Models\partners;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -109,7 +109,8 @@ class ItemsController extends Controller
             'price'=>$request->price,
             'qty'=>$request->qty,
             'color'=>$request->color,
-            'itemgroupno'=>$request->itemgroupno
+            'itemgroupno'=>$request->itemgroupno,
+            'img'=>$request->img
         ]);
 
         $item->save();
@@ -147,9 +148,11 @@ class ItemsController extends Controller
 
 
     public function AddtoCart($id){
-        DB::table('cart')->insert(['iditem'=> $id]);
-
-        return redirect('showProd/'.$id);
+        DB::table('cart')->insert(['iditem' => $id]); //save to cart table 
+        $idgroup=Session::get('id');
+        $count=DB::table('cart')->get()->count();
+        Session::put('countitem',$count);
+        return redirect('showProd/'. $idgroup);
     }
 
 
@@ -161,18 +164,15 @@ class ItemsController extends Controller
     }
 
     public function checkout(){
-        $apiURL = 'https://v1.baseball.api-sports.io/status';
-        $headers = [
-            'Content-Type' => 'application/json',
-            'X-RapidAPI-Key' => '24c939c2ba293c859d5ecd476932d293'
-        ];
-        $response = Http::withHeaders($headers)->get($apiURL);
-        $data = $response->json();
-
-        dd($data);
+        return view('cart');
     }
 
     public function about(){
         return view('about');
+    }
+
+    public function viewCart(){
+        $x=items::All();
+        return view('cart', ['x'=>$x]);
     }
 }

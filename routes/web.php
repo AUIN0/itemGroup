@@ -74,6 +74,6 @@ Route::get('/showProd/{id}', [ItemsController::class, 'showProduct'])->name('sho
 
 Route::get('/addtocart/{id}', [ItemsController::class, 'AddtoCart'])->name('addtocart')->middleware('auth');
 
-route::get('/checkout',[ItemsController::class,'checkout'])->name('checkout');
+route::get('/cart',[ItemsController::class,'checkout'])->name('checkout')->middleware('auth');
 
-Route::get('/aboutMe', [ItemsController::class, 'about'])->name('about');
+Route::get('/aboutMe', [ItemsController::class, 'about'])->name('about')->middleware('auth');

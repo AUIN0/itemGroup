@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('qty'); //qunatity
             $table->string('color');
             $table->integer('itemgroupno'); //item group number
+            $table->string('img');
             $table->timestamps();
         });
     }
