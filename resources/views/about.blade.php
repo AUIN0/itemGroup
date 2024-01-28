@@ -10,7 +10,7 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+            <img src="{{url('/images/Avatar1.jpg')}}" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">Ahmed Al-Nuaim</h5>
             <p class="text-muted mb-1">Full Stack Web Developer</p>
@@ -68,7 +68,7 @@
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
               <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1">Laravel</span>Status Bar</p>
+                <p class="mb-4"><span class="text-primary font-italic me-1">Laravel</span>Level Status Bar</p>
                 <p class="mb-1" style="font-size: .77rem;">Controller</p>
                 <div class="progress rounded" style="height: 5px;">
                   <div class="progress-bar" role="progressbar" style="width: 93%" aria-valuenow="93"
@@ -101,12 +101,12 @@
             <div class="card mb-4 mb-md-0">
               <div class="card-body">
                 <p class="mb-4"><span class="text-primary font-italic me-1">Tuwaiq</span>PHP Laravel rating</p>
-                <p class="mb-1" style="font-size: .77rem;">Material</p>
+                <p class="mb-1" style="font-size: .77rem;">Material taught</p>
                 <div class="progress rounded" style="height: 5px;">
                   <div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97"
                     aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Time</p>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Time given</p>
                 <div class="progress rounded" style="height: 5px;">
                   <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95"
                     aria-valuemin="0" aria-valuemax="100"></div>
@@ -121,7 +121,7 @@
                   <div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97"
                     aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Overall</p>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Overall score</p>
                 <div class="progress rounded mb-2" style="height: 5px;">
                   <div class="progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99"
                     aria-valuemin="0" aria-valuemax="100"></div>

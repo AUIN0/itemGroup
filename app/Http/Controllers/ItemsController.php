@@ -172,7 +172,7 @@ class ItemsController extends Controller
     }
 
     public function viewCart(){
-        $x=items::All();
-        return view('cart', ['x'=>$x]);
+        $data=items::All();
+        return view('cart')->with('data', $data);
     }
 }

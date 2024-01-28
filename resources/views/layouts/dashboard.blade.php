@@ -47,7 +47,7 @@
               <div class="collapse navbar-collapse" >
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <h3 class="nav-link active text-white" aria-current="page" href="#" style="font-family: cairo; font-size: 35px;">Tuwaiq PHP Laravel</h3>
+                      <h3 class="nav-link active text-white" aria-current="page" href="#" style="font-family: cairo; font-size: 35px;">Shopmania</h3>
                     </li>
                    
                     
@@ -88,12 +88,12 @@
                     <div class="col-sm-2  bg-dark">
                         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                <li class="nav-item">
+                                <li class="nav-item badge bg-secondary">
                                     <a href="{{route('item')}}" class="nav-link align-middle px-0">
-                                        <i class="bi bi-diagram-2-fill  fa-2x"></i> <span class="ms-1 d-none d-sm-inline text-white" style="font-size: 25px">Add item</span>
+                                        <i class="bi bi-diagram-2-fill fa-2x"></i> <span class="ms-1 d-none d-sm-inline text-white" style="font-size: 25px">Add item</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item badge bg-secondary">
                                     <a href="{{route('itemgroup')}}" class="nav-link align-middle px-0">
                                         <i class="bi bi-collection-fill  fa-2x"></i> <span class="ms-1 d-none d-sm-inline text-white" style="font-size: 25px">Add group</span>
                                     </a>
